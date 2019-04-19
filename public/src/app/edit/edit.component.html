@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Edit Product</title>
+</head>
+
+<body>
+  <div class="col-md-4" style="border: 2px solid black; border-radius: 15px; margin: 50px;">
+    <h1>Edit Your product!</h1>
+    <div id="lilbox">
+      <form (submit)="editSubmit()">
+        <h3>Title: <input class="fields" type="text" name="title" [(ngModel)]="editProduct.title"></h3>
+        <p class="fronterror" *ngIf="editProduct.title.length < 4"> Title Must be at least 4 characters long!</p>
+        <h3>Price: <input class="fields" type="number" name="price" [(ngModel)]="editProduct.price"></h3>
+        <p class="fronterror" *ngIf="!editProduct.price"></p>
+        <h3>Image URL: <input class="fields" type="text" name="image" [(ngModel)]="editProduct.image"></h3>
+        <input class="button btn btn-success" type="submit" value="Update" style="margin:30px;">
+        <button class="button btn btn-danger" (click)="deleteProduct(editProduct._id)">Delete</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

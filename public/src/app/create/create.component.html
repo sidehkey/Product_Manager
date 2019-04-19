@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Create New Product</title>
+</head>
+
+<body>
+  <div class="col-md-4" style="border: 2px solid black; border-radius: 15px; margin: 50px;">
+    <h1>Create New Product!</h1>
+    <div id="lilbox">
+      <form (submit)="addProduct()">
+        <h3>Title: <input class="fields" type="text" name="title" [(ngModel)]="newProduct.title"></h3>
+        <p class="fronterror" *ngIf="newProduct.title.length < 4"></p>
+        <h3>Price: <input class="fields" type="number" name="price" [(ngModel)]="newProduct.price"></h3>
+        <p class="fronterror" *ngIf="!newProduct.price"></p>
+        <h3>Image URL: <input class="fields" type="text" name="image" [(ngModel)]="newProduct.image"></h3>
+        <input class="button btn btn-success" type="submit" value="Create" style="margin:20px;">
+        <button class="button btn btn-danger" [routerLink]="['/']">Cancle</button>
+      </form>
+    </div>
+    <div *ngIf="error">
+      <h2 class="backerror">{{error}}</h2>
+    </div>
+  </div>
+</body>
+
+</html>
